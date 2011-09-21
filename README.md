@@ -1,0 +1,1 @@
+# handlebars\_haml\_assets
