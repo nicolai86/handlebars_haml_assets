@@ -1,5 +1,5 @@
 module HamlAssets
-  class HamlSprocketsEngine < Tilt::Template
+  class HamlSprocketsEngine < ::Tilt::Template
     module ViewContext
       include HandlebarsInputHelper
     end
