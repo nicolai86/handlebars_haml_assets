@@ -21,7 +21,7 @@ module HandlebarsInputHelper
 
     def check_box(name, *args)
       original_checkbox = super
-      checkbox = original_checkbox.gsub(/\/>$/, "{{#if #{name}}}check='checked'{{/if}}/>")
+      checkbox = original_checkbox.gsub(/\/>$/, "{#if #{name}}check='checked'{/if}/>")
       checkbox.html_safe
     end
   end
