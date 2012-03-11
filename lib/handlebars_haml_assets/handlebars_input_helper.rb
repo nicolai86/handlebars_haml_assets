@@ -13,12 +13,16 @@ module HandlebarsInputHelper
       super(method, options.reverse_merge(:value => "{{#{method}}}"))
     end
 
-    def radio_button(method, tag_value, options={})
-      super(method, tag_value, options.reverse_merge("{{#if #{method}}}checked" => "'checked'{{/if}}"))
+    def radio_button(name, *args)
+      original_radio = super
+      radio = original_radio.gsub(/\/>$/, "{{#if #{name}}}check='checked'{{/if}}/>")
+      radio.html_safe
     end
 
-    def check_box(method, options={}, checked_value="1", unchecked_value="0")
-      super(method, options.reverse_merge("{{#if #{method}}}'checked'" => "'checked'{{/if}}"), checked_value, unchecked_value)
+    def check_box(name, *args)
+      original_checkbox = super
+      checkbox = original_checkbox.gsub(/\/>$/, "{{#if #{name}}}check='checked'{{/if}}/>")
+      checkbox.html_safe
     end
   end
 end
