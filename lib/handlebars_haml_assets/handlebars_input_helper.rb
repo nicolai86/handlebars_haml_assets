@@ -8,5 +8,11 @@ module HandlebarsInputHelper
     def text_field(method, options={})
       super(method, options.reverse_merge(:value => "{{#{method}}}"))
     end
+
+    def check_box(name, *args)
+      original_checkbox = super
+      checkbox = original_checkbox.gsub(/\/>$/, "{{#if #{name}}}checked='checked'{{/if}}/>")
+      checkbox.html_safe
+    end
   end
 end
