@@ -33,6 +33,6 @@ Behind the scenes, all this does is to `reverse_merge` your options value key wi
 In order for this to work, you'll need:
 
  - haml_asset
- - rails 3.1
+ - rails >= 3.2
 
 The `hbs_form_for` helper will only be available within your asset\_pipeline.
